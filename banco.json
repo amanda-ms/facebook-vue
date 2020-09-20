@@ -1,0 +1,84 @@
+{
+  "users": [
+    {
+      "nome": "amanda",
+      "email": "amanda-ms@hotmail.com",
+      "date": "1998-10-05",
+      "password": "123456",
+      "id": 1
+    },
+    {
+      "nome": "Rafael",
+      "email": "rafael.augusto@gmail.com",
+      "date": "1995-12-15",
+      "password": "112233",
+      "id": 2
+    }
+  ],
+  "posts": [
+    {
+      "post": "Olá",
+      "id": 1
+    },
+    {
+      "post": "Olá",
+      "id": 2
+    },
+    {
+      "post": "Olá",
+      "id": 3
+    },
+    {
+      "post": "Olá",
+      "id": 4
+    },
+    {
+      "post": "Olá",
+      "id": 5
+    },
+    {
+      "post": "Olá",
+      "id": 6
+    },
+    {
+      "post": "Olá",
+      "id": 7
+    },
+    {
+      "post": "Olá",
+      "id": 8
+    },
+    {
+      "post": "Olá",
+      "id": 9
+    },
+    {
+      "post": "Olá",
+      "id": 10
+    },
+    {
+      "post": "Olá",
+      "id": 11
+    },
+    {
+      "post": "Olá",
+      "id": 12
+    },
+    {
+      "post": "Olá",
+      "id": 13
+    },
+    {
+      "post": "Olá",
+      "id": 14
+    },
+    {
+      "post": "Olá",
+      "id": 15
+    },
+    {
+      "post": "Olá",
+      "id": 16
+    }
+  ]
+}
