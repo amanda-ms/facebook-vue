@@ -26,11 +26,10 @@
           class="login__form__input"
         />
         <button class="login__form__button">Entrar</button>
-        <a href="#">Esqueceu sua senha ?</a>
-        <hr />
-        <router-link to="/cadastro" class="login__form__cadastro"
-          >Cadastre-se</router-link
-        >
+        <div class="login__form__container">
+          <a href="#" class="login__form__container__senha">Esqueceu a senha ?</a>
+        </div>
+        <router-link to="/cadastro" class="login__form__cadastro">Criar nova conta</router-link>
       </form>
     </div>
   </div>
@@ -70,6 +69,7 @@ export default {
   width: 100%;
   background: #f0f2f5;
   height: 100%;
+  align-items: center;
   .login {
     display: flex;
     width: 75%;
@@ -95,6 +95,7 @@ export default {
       border-radius: 10px;
       padding: 20px;
       height: 300px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
       &__input {
         outline: 0;
         border: 1px solid #ccc;
@@ -111,6 +112,30 @@ export default {
         font-size: 20px;
         font-weight: 700;
         border-radius: 5px;
+        cursor: pointer;
+      }
+      &__container {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid #ccc;
+        padding: 15px;
+        &__senha {
+          text-decoration: none;
+          color: #1877f2;
+          font-size: 15px;
+        }
+      }
+      &__cadastro {
+        display: flex;
+        align-self: center;
+        text-decoration: none;
+        margin-top: 25px;
+        background: #42b72a;
+        padding: 15px;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: 700;
       }
     }
   }
