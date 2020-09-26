@@ -1,3 +1,5 @@
 <template>
-  <div></div>
+  <div class="header">
+    <input type="text" />
+  </div>
 </template>
