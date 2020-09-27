@@ -13,6 +13,11 @@
       "date": "1995-12-15",
       "password": "112233",
       "id": 2
+    },
+    {
+      "email": "",
+      "password": "",
+      "id": 3
     }
   ],
   "posts": [
