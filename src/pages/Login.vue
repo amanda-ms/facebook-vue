@@ -12,6 +12,7 @@
           fazem parte da sua vida.
         </p>
       </div>
+
       <form @submit="submit" class="login__form">
         <input
           type="email"
@@ -27,22 +28,86 @@
         />
         <button class="login__form__button">Entrar</button>
         <div class="login__form__container">
-          <a href="#" class="login__form__container__senha">Esqueceu a senha ?</a>
+          <a href="#" class="login__form__container__senha"
+            >Esqueceu a senha ?</a
+          >
         </div>
-        <router-link to="/cadastro" class="login__form__cadastro">Criar nova conta</router-link>
+        <a href="#" @click="modal = true" class="login__form__cadastro"
+          >Criar nova conta</a
+        >
       </form>
+
+      <Modal v-if="modal">
+        <div class="modal">
+          <div class="header">
+            <div class="header__cadastre">
+              <h1>Cadastre-se</h1>
+              <span>É rápido e fácil</span>
+            </div>
+            <a href="#" @click="modal = false" class="header__close"
+              ><img src="@/assets/close-cadastro.png"
+            /></a>
+          </div>
+          <form @submit="createUser" class="form">
+            <input
+              type="text"
+              placeholder="Digite seu nome"
+              v-model="cadastro.nome"
+              class="form__input"
+            />
+            <input
+              type="email"
+              placeholder="Digite seu email"
+              v-model="cadastro.email"
+              class="form__input"
+            />
+            <input
+              type="date"
+              placeholder="Digite seu aniversário"
+              v-model="cadastro.date"
+              class="form__input"
+            />
+            <input
+              type="password"
+              placeholder="Digite sua senha"
+              v-model="cadastro.password"
+              class="form__input"
+            />
+            <input
+              type="password"
+              placeholder="Confirme sua senha"
+              v-model="cadastro.confirmationPassword"
+              class="form__input"
+            />
+            <button class="form__button">Cadastrar</button>
+          </form>
+        </div>
+      </Modal>
     </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import Modal from "@/components/common/Modal";
+
 export default {
   data() {
     return {
       email: "",
       password: "",
+      cadastro: {
+        nome: "",
+        email: "",
+        date: "",
+        password: "",
+        confirmationPassword: "",
+      },
+      modal: false,
     };
+  },
+  components: {
+    Modal,
   },
   methods: {
     async submit(e) {
@@ -58,6 +123,22 @@ export default {
       } else {
         alert("Usuário ou senha incorretos");
       }
+    },
+    async createUser(e) {
+      e.preventDefault();
+      const { data } = await axios.post("http://localhost:3000/users", {
+        nome: this.nome,
+        email: this.email,
+        date: this.date,
+        password: this.password,
+      });
+      this.$router.push("/");
+
+      this.nome = "";
+      this.email = "";
+      this.date = "";
+      this.password = "";
+      this.confirmationPassword = "";
     },
   },
 };
@@ -137,6 +218,9 @@ export default {
         color: #fff;
         font-weight: 700;
       }
+    }
+    .modal {
+      padding: 15px;
     }
   }
 }
