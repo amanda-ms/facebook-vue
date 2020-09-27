@@ -212,14 +212,19 @@
             </div>
             <div class="form__radio">
               <div class="form__radio__title">
-                <span>Gênero</span>
+                <span
+                  >Gênero
+                  <Icons
+                    :name="question"
+                    :style="{ width: '15px', height: '15px' }"
+                    color="#606770"
+                /></span>
               </div>
               <div class="form__radio__content">
                 <label for="feminino" class="form__radio__content__label">
                   Feminino
                   <input
                     type="radio"
-                    id="genero"
                     value="feminino"
                     name="genero"
                     v-model="cadastro.genero"
@@ -229,7 +234,6 @@
                   Masculino
                   <input
                     type="radio"
-                    id="genero"
                     value="masculino"
                     name="genero"
                     v-model="cadastro.genero"
@@ -239,7 +243,6 @@
                   Personalizado
                   <input
                     type="radio"
-                    id="genero"
                     value="personalizado"
                     name="genero"
                     v-model="cadastro.genero"
@@ -267,6 +270,7 @@
 <script>
 import axios from "axios";
 import Modal from "@/components/common/Modal";
+import Icons from "@/components/common/Icons";
 
 export default {
   data() {
@@ -289,6 +293,7 @@ export default {
   },
   components: {
     Modal,
+    Icons,
   },
   methods: {
     async submit(e) {
@@ -307,19 +312,38 @@ export default {
     },
     async createUser(e) {
       e.preventDefault();
+      const {
+        dia,
+        mes,
+        ano,
+        nome,
+        sobrenome,
+        email,
+        password,
+        genero,
+      } = this.cadastro;
       const { data } = await axios.post("http://localhost:3000/users", {
-        nome: this.nome,
-        email: this.email,
-        date: this.date,
-        password: this.password,
+        nome,
+        sobrenome,
+        email,
+        date: this.formatDate(dia, mes, ano),
+        password,
+        genero,
       });
-      this.$router.push("/");
+      this.modal = false;
 
-      this.nome = "";
-      this.email = "";
-      this.date = "";
-      this.password = "";
-      this.confirmationPassword = "";
+      this.cadastro.nome = "";
+      this.cadastro.sobrenome = "";
+      this.cadastro.email = "";
+      this.cadastro.dia = "0";
+      this.cadastro.mes = "0";
+      this.cadastro.ano = "0";
+      this.cadastro.password = "";
+      this.cadastro.confirmationPassword = "";
+    },
+    formatDate(dia, mes, ano) {
+      mes = mes - 1;
+      return new Date(ano, mes, dia).toLocaleString("pt-br").split(" ")[0];
     },
   },
 };

@@ -1,23 +1,20 @@
 {
   "users": [
     {
-      "nome": "amanda",
-      "email": "amanda-ms@hotmail.com",
-      "date": "1998-10-05",
-      "password": "123456",
+      "nome": "Amanda",
+      "email": "amanda@gmail.com",
+      "date": "05/10/1998",
+      "password": "123",
+      "genero": "feminino",
       "id": 1
     },
     {
       "nome": "Rafael",
-      "email": "rafael.augusto@gmail.com",
-      "date": "1995-12-15",
-      "password": "112233",
+      "email": "rafael@signainfo.com.br",
+      "date": "15/12/1995",
+      "password": "123",
+      "genero": "masculino",
       "id": 2
-    },
-    {
-      "email": "",
-      "password": "",
-      "id": 3
     }
   ],
   "posts": [
@@ -84,6 +81,10 @@
     {
       "post": "Olá",
       "id": 16
+    },
+    {
+      "post": "Party with friends...\n\nhttps://www.teclasap.com.br/wp-content/uploads/2009/11/party.jpg",
+      "id": 17
     }
   ]
 }
