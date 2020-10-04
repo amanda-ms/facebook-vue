@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Header />
     <form @submit="createPost">
       <textarea
         placeholder="No que você está pensando, Amanda ?"
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+import Header from "@/components/common/Header";
 import axios from "axios";
 export default {
   data() {
@@ -22,6 +24,11 @@ export default {
       posts: [],
     };
   },
+
+  components: {
+    Header,
+  },
+
   mounted() {
     this.loadPosts();
   },
