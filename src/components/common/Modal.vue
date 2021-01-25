@@ -18,8 +18,8 @@
   justify-content: center;
   align-items: center;
   &__content {
-    width: 32%;
-    height: 78%;
+    width: 30%;
+    height: 75%;
     border-radius: 7px;
     background: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);

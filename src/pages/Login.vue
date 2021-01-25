@@ -13,29 +13,38 @@
         </p>
       </div>
 
-      <form @submit="submit" class="login__form">
-        <input
-          type="email"
-          placeholder="Email ou telefone"
-          v-model="email"
-          class="login__form__input"
-        />
-        <input
-          type="password"
-          placeholder="Digite sua senha"
-          v-model="password"
-          class="login__form__input"
-        />
-        <button class="login__form__button">Entrar</button>
-        <div class="login__form__container">
-          <a href="#" class="login__form__container__senha"
-            >Esqueceu a senha?</a
+      <div class="login__secondary">
+        <form @submit="submit" class="login__secondary__form">
+          <input
+            type="email"
+            placeholder="Email ou telefone"
+            v-model="email"
+            class="login__secondary__form__input"
+          />
+          <input
+            type="password"
+            placeholder="Digite sua senha"
+            v-model="password"
+            class="login__secondary__form__input"
+          />
+          <button class="login__secondary__form__button">Entrar</button>
+          <div class="login__secondary__form__container">
+            <a href="#" class="login__secondary__form__container__senha"
+              >Esqueceu a senha?</a
+            >
+          </div>
+          <a
+            href="#"
+            @click="modal = true"
+            class="login__secondary__form__cadastro"
+            >Criar nova conta</a
           >
-        </div>
-        <a href="#" @click="modal = true" class="login__form__cadastro"
-          >Criar nova conta</a
-        >
-      </form>
+        </form>
+        <p class="login__secondary__page">
+          <a href="#">Criar uma Página</a> para uma celebridade, banda ou
+          empresa.
+        </p>
+      </div>
 
       <Modal v-if="modal">
         <div class="modal">
@@ -282,6 +291,58 @@
         </div>
       </Modal>
     </div>
+    <div class="footer">
+      <div class="footer__content content">
+        <ul class="footer__content__languages">
+          <li><a>Português (Brasil)</a></li>
+          <li><a>English (US)</a></li>
+          <li><a>Español</a></li>
+          <li><a>Français (France)</a></li>
+          <li><a>Italiano</a></li>
+          <li><a>العربية </a></li>
+          <li><a>Deutsch</a></li>
+          <li><a>हिन्दी</a></li>
+          <li><a>中文(简体)</a></li>
+          <li><a>日本語</a></li>
+        </ul>
+        <ul class="footer__content__options">
+          <li><a>Cadastre-se</a></li>
+          <li><a>Entrar</a></li>
+          <li><a>Messenger</a></li>
+          <li><a>Facebook Lite</a></li>
+          <li><a>Watch</a></li>
+          <li><a>Pessoas</a></li>
+          <li><a>Páginas</a></li>
+          <li><a>Categorias de Página</a></li>
+          <li><a>Locais</a></li>
+          <li><a>Jogos</a></li>
+          <li><a>Locais</a></li>
+          <li><a>Marketplace</a></li>
+          <li><a>Facebook Pay</a></li>
+          <li><a>Grupos</a></li>
+          <li><a>Vagas de emprego</a></li>
+          <li><a>Oculus</a></li>
+          <li><a>Portal</a></li>
+          <li><a>Instagram</a></li>
+          <li><a>Local</a></li>
+          <li><a>Campanhas de arrecadação de fundos</a></li>
+          <li><a>Serviços</a></li>
+          <li><a>Central de Informações de Votação</a></li>
+          <li><a>Sobre</a></li>
+          <li><a>Criar anúncio</a></li>
+          <li><a>Criar Página</a></li>
+          <li><a>Desenvolvedores</a></li>
+          <li><a>Carreiras</a></li>
+          <li><a>Privacidade</a></li>
+          <li><a>Cookies</a></li>
+          <li><a>Escolhas para anúncios</a></li>
+          <li><a>Termos</a></li>
+          <li><a>Ajuda</a></li>
+          <li><a>Configurações</a></li>
+        </ul>
+        <p class="footer__content__copy">Facebook © 2021</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -378,6 +439,7 @@ export default {
 <style lang="scss">
 .container {
   display: flex;
+  flex-direction: column;
   width: 100%;
   background: #f0f2f5;
   height: 100%;
@@ -385,79 +447,101 @@ export default {
   .login {
     display: flex;
     width: 75%;
-    margin: 50px auto;
+    margin: 72px auto 112px;
+    min-height: 535px;
+    align-items: center;
     &__initial {
       display: flex;
       flex-direction: column;
       width: 60%;
+      margin-bottom: 80px;
       &__logo {
         width: 300px;
       }
       &__paragrafo {
         font-size: 28px;
         padding-left: 30px;
-        margin-right: 75px;
+        margin-right: 55px;
+        line-height: 32px;
       }
     }
-    &__form {
-      display: flex;
-      flex-direction: column;
-      background: #fff;
-      width: 35%;
-      border-radius: 10px;
-      padding: 20px;
-      height: 300px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
-      &__input {
-        outline: 0;
-        border: 1px solid #ccc;
-        font-size: 18px;
-        padding: 15px;
-        border-radius: 5px;
-        margin-bottom: 10px;
-      }
-      &__button {
-        height: 45px;
-        border: none;
-        background: #166fe5;
-        color: #fff;
-        font-size: 20px;
-        font-weight: 700;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 400ms;
-        &:hover {
-          background: #1365cf;
-        }
-      }
-      &__container {
-        width: 90%;
+    &__secondary {
+      &__form {
         display: flex;
-        justify-content: center;
-        border-bottom: 1px solid #ccc;
-        padding: 15px;
-        &__senha {
-          text-decoration: none;
-          color: #1877f2;
-          font-size: 15px;
+        flex-direction: column;
+        background: #fff;
+        width: 396px;
+        border-radius: 10px;
+        padding: 20px;
+        height: 345px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+        &__input {
+          outline: 0;
+          border: 1px solid #ccc;
+          font-size: 18px;
+          padding: 15px;
+          border-radius: 5px;
+          margin-bottom: 10px;
+        }
+        &__button {
+          height: 45px;
+          border: none;
+          background: #166fe5;
+          color: #fff;
+          font-size: 20px;
+          font-weight: 700;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: 400ms;
           &:hover {
-            text-decoration: underline;
+            background: #1365cf;
+          }
+        }
+        &__container {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          border-bottom: 1px solid #ccc;
+          padding: 15px;
+          &__senha {
+            text-decoration: none;
+            color: #1877f2;
+            font-size: 15px;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+        &__cadastro {
+          display: flex;
+          align-self: center;
+          text-decoration: none;
+          margin-top: 25px;
+          background: #42b72a;
+          padding: 15px;
+          border-radius: 5px;
+          color: #fff;
+          font-weight: 700;
+          transition: 400ms;
+          &:hover {
+            background: #379e23;
           }
         }
       }
-      &__cadastro {
+      &__page {
+        padding-top: 30px;
+        font-size: 14px;
         display: flex;
-        align-self: center;
-        text-decoration: none;
-        margin-top: 25px;
-        background: #42b72a;
-        padding: 15px;
-        border-radius: 5px;
-        color: #fff;
-        font-weight: 700;
-        transition: 400ms;
-        &:hover {
-          background: #379e23;
+        justify-content: center;
+        a {
+          text-decoration: none;
+          font-weight: 600;
+          color: #000;
+          margin-right: 5px;
+          padding-bottom: 0;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }
@@ -593,6 +677,45 @@ export default {
             color: #ccc;
           }
         }
+      }
+    }
+  }
+  .footer {
+    width: 100%;
+    background: #fff;
+    padding: 25px 0;
+    min-height: 225px;
+    &__content {
+      &__languages {
+        display: flex;
+        list-style: none;
+        border-bottom: 1px solid rgba(180, 176, 178, 0.4);
+        padding-bottom: 10px;
+        li {
+          margin-right: 20px;
+          a {
+            color: #998d91;
+            font-size: 12px;
+          }
+        }
+      }
+      &__options {
+        display: flex;
+        list-style: none;
+        flex-wrap: wrap;
+        padding-top: 10px;
+        li {
+          margin-right: 20px;
+          a {
+            color: #998d91;
+            font-size: 12px;
+          }
+        }
+      }
+      &__copy {
+        padding-top: 20px;
+        font-size: 11px;
+        color: #998d91;
       }
     }
   }
