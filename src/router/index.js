@@ -16,6 +16,11 @@ const routes = [
     name: "timeline",
     component: Timeline,
   },
+  {
+    path: "/watch",
+    name: "watch",
+    component: Timeline,
+  },
 ];
 
 const router = new VueRouter({

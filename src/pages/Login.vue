@@ -492,7 +492,8 @@ export default {
           font-weight: 700;
           border-radius: 5px;
           cursor: pointer;
-          transition: 400ms;
+          transition: background-color 300ms;
+          outline: 0;
           &:hover {
             background: #1365cf;
           }
